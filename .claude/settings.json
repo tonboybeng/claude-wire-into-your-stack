@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__docs__read_text_file",
+      "mcp__docs__list_directory",
+      "mcp__docs__search_files"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/lint-edited-file.js\""
+          }
+        ]
+      }
+    ]
+  }
+}
